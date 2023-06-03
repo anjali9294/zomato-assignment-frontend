@@ -2,11 +2,12 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 import Header from "../Header";
+import { useNavigate } from "react-router-dom";
 function Wallpaper() {
   let [locationList, setLocationList] = useState([]);
   let [disabled, setDisabled] = useState(true);
   let [RestaurantTab, setRestaurantTab] = useState([]);
-
+  const navigate = useNavigate();
   let getLocationId = async (event) => {
     let value = event.target.value;
     console.log(value);
@@ -103,9 +104,9 @@ function Wallpaper() {
                     return (
                       <li
                         className="list-group-item d-flex"
-                        // onClick={() => {
-                        //   navigate("/restaurant/" + restaurant._id);
-                        // }}
+                        onClick={() => {
+                          navigate("/restaurant/" + restaurant._id);
+                        }}
                         key={index}
                       >
                         <img
